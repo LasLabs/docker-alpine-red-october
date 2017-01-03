@@ -12,22 +12,22 @@ RUN addgroup -S redoctober \
     && adduser -S -g redoctober redoctober
 
 # Install Build Dependencies
-ENV buildDeps "build-base \
-               gcc \
-               git \
-               libtool"
+ENV BUILD_DEPS="build-base \
+                gcc \
+                git \
+                libtool"
 
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
 
-RUN apk add --no-cache $buildDeps \
+RUN apk add --no-cache $BUILD_DEPS \
                        runit \
                        openssl
 
 # Install Red October
-RUN git clone --depth=1 https://github.com/cloudflare/redoctober.git $GOPATH/src/github.com/cloudflare/redoctober \
+RUN git clone --depth=1 "https://github.com/cloudflare/redoctober.git" "$GOPATH/src/github.com/cloudflare/redoctober" \
     && go install github.com/cloudflare/redoctober
 
-RUN apk del $buildDeps
+RUN apk del $BUILD_DEPS
 
 # Setup Environment
 
