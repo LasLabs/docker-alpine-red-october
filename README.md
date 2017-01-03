@@ -34,7 +34,9 @@ pleasure:
 
 | Name | Default | Description |
 |------|---------|-------------|
-
+| RO_CERTPASSWD | password | Password for the Red October certificate |
+| RO_COMMONNAME | localhost | Common Name for the server |
+| RO_DATA | /var/lib/redoctober/data | Where to store all of the data |
 
 Known Issues / Roadmap
 ======================
