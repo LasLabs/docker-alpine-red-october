@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+# Copyright 2016 LasLabs Inc.
+# License MIT.0 or later (https://opensource.org/licenses/MIT).
+
+set -e
+
+sleep 5
+
+curl -k --fail https://localhost:8080/
+
+echo "Curl passed on $DOCKER_CONTAINER_ID"
