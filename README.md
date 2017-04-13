@@ -1,10 +1,10 @@
-[![License: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://travis-ci.org/LasLabs/clouder-cfssl-exec.svg?branch=master)](https://travis-ci.org/LasLabs/clouder-cfssl-exec)
+[![License: Apache 2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
+[![Build Status](https://travis-ci.org/LasLabs/docker-alpine-red-october.svg?branch=master)](https://travis-ci.org/LasLabs/docker-alpine-red-october)
 
-Clouder CFSSL Exec
-==================
+Docker - Alpine Red October
+===========================
 
-This image provides CFSSL for Clouder.
+This image provides Cloudflare Red October using an Alpine Linux base.
 
 Configuration
 =============
@@ -41,12 +41,10 @@ pleasure:
 Known Issues / Roadmap
 ======================
 
-* Lack of HTTPS for API - https://github.com/cloudflare/cfssl/wiki/Add-HTTPS-endpoints-to-CFSSL
-
 Bug Tracker
 ===========
 
-Bugs are tracked on [GitHub Issues](https://github.com/LasLabs/clouder-cfssl-exec/issues).
+Bugs are tracked on [GitHub Issues](https://github.com/LasLabs/docker-alpine-red-october/issues).
 In case of trouble, please check there to see if your issue has already been reported.
 If you spotted it first, help us smash it by providing detailed and welcomed feedback.
 
@@ -65,4 +63,4 @@ Maintainer
 
 This module is maintained by [LasLabs Inc.](https://laslabs.com)
 
-* https://github.com/LasLabs/clouder-cfssl-exec
+* https://github.com/LasLabs/docker-alpine-red-october

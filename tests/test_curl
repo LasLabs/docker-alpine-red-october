@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # Copyright 2016 LasLabs Inc.
-# License MIT.0 or later (https://opensource.org/licenses/MIT).
+# License Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0.html).
 
 set -e
 
