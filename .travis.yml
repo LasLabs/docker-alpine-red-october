@@ -9,6 +9,11 @@ env:
   global:
     - PORTS="8080:8080"
     - DAEMONIZE="1"
+    - DOCKER_REPO="laslabs/alpine-red-october"
+    - DOCKER_USER="laslabsbot"
+    - DOCKER_TAG="latest"
+    # DOCKER_PASS
+    - secure: "a0+1/WQfPd6099q8eQALGB4lD1SGJPJ3DViZ50mD1kPm5Joh88hyC8HyIDQmVohfdfOklL0utF1cQ+A7rTsUBSy6GpsSi/jFoOOhZW3d4lisQQo2qjH7WETAl6MvEkRTSHNUzyzkgCBppno5kySvVjAQuib3M4yDS6otYsYfg1vNeIslC6VxsEGN7K9RVqVbAQZxxXbHmfyeGPsJZOLJ/0btoYnrPF8mpYrItZB5XVDu/eC+wAsaXmfv/0gylalobqud0/tnBLtfR/FUD14cH2qs+y7ulqQHQQclRAxDr6SCnEhLRadGmawSwsUcMDFXbpVoXQLbxwLmolSXbLVSpl+AE3rggA/qrx1xDoAa8EvB0MnZXL03gIiUPIjU1G1T4CWBD5Twph8Kvu2s5sppOcUuZ1kWC9Nel/Dt6mJOjn4SaZW6nUkl5zLgnCLwbD2pnZNi2IV5UXDBGIj96A5A1BBV6BdnPXhqu12bMWg80y26vf11y2SNA3wcoywmd4VP1B26Rd/eHGdFZbH8uVPqVUjK26VWkgz1eVBfPKRbirdKXykInIvnqAU1LFEEQ6Ej+QpxwaRRXI83sihOxmPvPveNmeLVFWUEgRWmHzBfOfrVDOKoBwMRdzWSlTxhwf+qM5/nmkWxoI39K8dyRI6tPFjA2fAE1fJ+rC8qqGpxojI="
 
   matrix:
     - TESTS="1"
