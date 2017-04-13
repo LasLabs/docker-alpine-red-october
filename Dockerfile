@@ -31,6 +31,8 @@ RUN apk del $BUILD_DEPS
 
 # Setup Environment
 
+VOLUME ["/var/lib/redoctober/data"]
+
 ENTRYPOINT ["/go/src/github.com/cloudflare/redoctober/scripts/docker-entrypoint.sh"]
 
 CMD ["redoctober", \
