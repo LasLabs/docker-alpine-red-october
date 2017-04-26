@@ -9,25 +9,24 @@ ENV RO_CERTS="${RO_DATA}/server.crt" \
     RO_KEYS="${RO_DATA}/server.pem"
 
 RUN addgroup -S redoctober \
-    && adduser -S -g redoctober redoctober
-
-# Install Build Dependencies
-ENV BUILD_DEPS="build-base \
-                gcc \
-                git \
-                libtool"
-
-RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
-
-RUN apk add --no-cache $BUILD_DEPS \
-                       runit \
-                       openssl
-
+    && adduser -S -g redoctober redoctober \
+# Add community for runit
+    && echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
+# Install build dependencies
+    && apk add --no-cache --virtual .build-deps \
+        build-base \
+        gcc \
+        git \
+        libtool \
+# Install required applicatons
+    && apk add --no-cache \
+        runit \
+        openssl \
 # Install Red October
-RUN git clone --depth=1 "https://github.com/cloudflare/redoctober.git" "$GOPATH/src/github.com/cloudflare/redoctober" \
-    && go install github.com/cloudflare/redoctober
-
-RUN apk del $BUILD_DEPS
+    && git clone --depth=1 "https://github.com/cloudflare/redoctober.git" "$GOPATH/src/github.com/cloudflare/redoctober" \
+    && go install github.com/cloudflare/redoctober \
+# Remove dependencies
+    && apk del .build-deps
 
 # Setup Environment
 
@@ -42,3 +41,17 @@ CMD ["redoctober", \
      "-keys=/var/lib/redoctober/data/server.pem", \
      "-metrics-host=0.0.0.0", \
      "-metrics-port=8081"]
+
+# Metadata
+ARG BUILD_DATE
+ARG VCS_REF
+ARG VERSION
+LABEL org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.name="Red October - Alpine" \
+      org.label-schema.description="Provides a Docker image for Red October on Alpine Linux." \
+      org.label-schema.url="https://laslabs.com/" \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.vcs-url="https://github.com/LasLabs/docker-alpine-red-october" \
+      org.label-schema.vendor="LasLabs Inc." \
+      org.label-schema.version=$VERSION \
+      org.label-schema.schema-version="1.0"
